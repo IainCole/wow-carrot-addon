@@ -1,0 +1,15 @@
+## Interface: 90105
+## Title: Carrot
+## Notes: Would you like a carrot?
+## Author: iaincole
+## Version: @project-version@
+## SavedVariables: CarrotDB
+## OptionalDeps: Ace3, LibSharedMedia-3.0
+## X-Embeds: Ace3
+## DefaultState: Enabled
+## X-Category: Miscellaneous, Audio & Video
+## X-License: MIT License
+## X-Website: https://github.com/IainCole/wow-carrot-addon
+embeds.xml
+Locales/en-US.lua
+Carrot.lua
