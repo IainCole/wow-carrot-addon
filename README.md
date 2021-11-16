@@ -1,3 +1,3 @@
 ## Carrot
 
-Various Memes!
+Various Memes
