@@ -11,6 +11,7 @@
 ## X-License: MIT License
 ## X-Website: https://github.com/IainCole/wow-carrot-addon
 ## X-Curse-Project-ID: 547526
+## X-WoWI-ID: 26176
 ## X-Wago-ID: 0mNw2PGo
 embeds.xml
 Locales/en-US.lua
