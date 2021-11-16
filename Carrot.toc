@@ -10,6 +10,8 @@
 ## X-Category: Miscellaneous, Audio & Video
 ## X-License: MIT License
 ## X-Website: https://github.com/IainCole/wow-carrot-addon
+## X-Curse-Project-ID: 547526
+## X-Wago-ID: 0mNw2PGo
 embeds.xml
 Locales/en-US.lua
 Carrot.lua
