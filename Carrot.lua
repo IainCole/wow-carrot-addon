@@ -16,11 +16,11 @@ local isInitialized = false
 
 local soundOptions = {
     mmmbop = "mmmbop",
-	dangerzone5 = "dangerzone5",
+	dangerzone5 = "dangerzone5"
 }
 
 local soundPaths = {
-    [soundOptions.mmmbop] = "Interface/AddOns/Carrot/Media/Sounds/mmmbop.ogg"
+    [soundOptions.mmmbop] = "Interface/AddOns/Carrot/Media/Sounds/mmmbop.ogg",
 	[soundOptions.dangerzone5] = "Interface/AddOns/Carrot/Media/Sounds/danger_zone_5.ogg"
 }
 
