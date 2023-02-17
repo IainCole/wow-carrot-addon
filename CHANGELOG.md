@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2
+
+* Fix comma bug
+
 ## v1.1
 
 * Added dangerzone sound file
