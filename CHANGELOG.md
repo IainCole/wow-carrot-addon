@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3
+
+* Add fuckoots sound file
+
 ## v1.2
 
 * Fix comma bug

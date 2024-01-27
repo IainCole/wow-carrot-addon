@@ -16,12 +16,14 @@ local isInitialized = false
 
 local soundOptions = {
     mmmbop = "mmmbop",
-	dangerzone5 = "dangerzone5"
+	dangerzone5 = "dangerzone5",
+    fuckoots = "Fuck Oots"
 }
 
 local soundPaths = {
     [soundOptions.mmmbop] = "Interface/AddOns/Carrot/Media/Sounds/mmmbop.ogg",
-	[soundOptions.dangerzone5] = "Interface/AddOns/Carrot/Media/Sounds/danger_zone_5.ogg"
+	[soundOptions.dangerzone5] = "Interface/AddOns/Carrot/Media/Sounds/danger_zone_5.ogg",
+    [soundOptions.fuckoots] = "Interface/AddOns/Carrot/Media/Sounds/fuck_oots.ogg"
 }
 
 local soundChannels =  {
@@ -141,6 +143,7 @@ function Carrot:OnInitialize()
 
     LSM:Register(SOUND, soundOptions.mmmbop, soundPaths[soundOptions.mmmbop])
 	LSM:Register(SOUND, soundOptions.dangerzone5, soundPaths[soundOptions.dangerzone5])
+    LSM:Register(SOUND, soundOptions.fuckoots, soundPaths[soundOptions.fuckoots])
 
     if self.options == nil then
         self.options = self:InitializeOptions(options)
