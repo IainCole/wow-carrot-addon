@@ -17,13 +17,15 @@ local isInitialized = false
 local soundOptions = {
     mmmbop = "mmmbop",
 	dangerzone5 = "dangerzone5",
-    fuckoots = "Fuck Oots"
+    fuckoots = "Fuck Oots",
+    katamari = "Katamari"
 }
 
 local soundPaths = {
     [soundOptions.mmmbop] = "Interface/AddOns/Carrot/Media/Sounds/mmmbop.ogg",
 	[soundOptions.dangerzone5] = "Interface/AddOns/Carrot/Media/Sounds/danger_zone_5.ogg",
-    [soundOptions.fuckoots] = "Interface/AddOns/Carrot/Media/Sounds/fuck_oots.ogg"
+    [soundOptions.fuckoots] = "Interface/AddOns/Carrot/Media/Sounds/fuck_oots.ogg",
+    [soundOptions.katamari] = "Interface/AddOns/Carrot/Media/Sounds/katamari.ogg"
 }
 
 local soundChannels =  {
@@ -36,7 +38,8 @@ local soundChannels =  {
 }
 
 local handles = {
-    ["mmmbop"] = nil
+    ["mmmbop"] = nil,
+    ["katamari"] = nil
 }
 
 local sharedSoundOptions = nil
@@ -144,6 +147,7 @@ function Carrot:OnInitialize()
     LSM:Register(SOUND, soundOptions.mmmbop, soundPaths[soundOptions.mmmbop])
 	LSM:Register(SOUND, soundOptions.dangerzone5, soundPaths[soundOptions.dangerzone5])
     LSM:Register(SOUND, soundOptions.fuckoots, soundPaths[soundOptions.fuckoots])
+    LSM:Register(SOUND, soundOptions.katamari, soundPaths[soundOptions.katamari])
 
     if self.options == nil then
         self.options = self:InitializeOptions(options)
@@ -203,6 +207,32 @@ function Carrot:COMBAT_LOG_EVENT_UNFILTERED(...)
                 handles.mmmbop = handle
             end
 
+            return
+        end
+
+         -- Katamari (Sorted/Rolling Rubbish)
+         if (spellId == 465346 or spellId == 461536) and destGUID == UnitGUID("player") then
+            if spellId == 461536 then
+                if subevent == "SPELL_AURA_REMOVED" then
+                    if handles.katamari then StopSound(handles.katamari) end
+                    return
+                end
+            elseif subevent == "SPELL_AURA_APPLIED" then
+                local sound = LSM:Fetch(SOUND, soundOptions.katamari, false)
+
+                local soundChannel = self.db.profile.soundChannel or CHANNEL_DEFAULT
+                if soundChannel == CHANNEL_DEFAULT then soundChannel = soundChannels.dialog end
+        
+                if handles.katamari then StopSound(handles.katamari) end
+        
+                -- Play the sound
+                self:Debug("Playing %s", tostring(sound))
+                local willPlay, handle = PlaySoundFile(sound, soundChannel)
+                if willPlay then
+                    handles.katamari = handle
+                end
+            end
+                            
             return
         end
     end

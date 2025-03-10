@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4
+
+* Add katamari trigger
+
 ## v1.3
 
 * Add fuckoots sound file
